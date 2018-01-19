@@ -4,9 +4,16 @@ function initMap() {
     zoom: 11,
     center: losAngeles
   });
-  
+
+  //sets marker and map to Los Angeles
   let marker = new google.maps.Marker({
     position: losAngeles,
     map: map
   });
 }
+
+//add markers
+google.maps.event.addListener(map, 'click',
+function(event){
+  addMarker({coords:event.latlng});
+});
