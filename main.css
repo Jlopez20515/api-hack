@@ -2,3 +2,27 @@
  height: 500px;
  width: 100%;
 }
+
+#weather {
+  height: 150px;
+  width: 25%;
+}
+
+#search {
+  width: 200px;
+  padding: 7px;
+  border: 1px solid #333;
+}
+
+#submit {
+  padding: 7px;
+  background: #607d8b;
+  border: 1px solid #607d8b;
+  color: white;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background: #333;
+  transition: all 0.40s;
+}
