@@ -7,9 +7,10 @@
   </head>
   <body>
     <section>
-      <form action="https://developer.accuweather.com/accuweather-current-conditions-api/apis">
-        <input type="text" placeholder="Search..." maxlength="25" id="search">
-        <input type="submit" value="Go!" id="submit">
+      <!-- will only send you to the accuweather api, just a placeholder now -->
+      <form class="js-submit">
+        <input class="cityInput" type="text" placeholder="Search..." maxlength="35" id="search">
+        <button class="go" type="submit" value="Go!" id="submit">Go</button>
       </form>
       <h1>My Google Maps API</h1>
         <div id="map"></div>
@@ -19,8 +20,8 @@
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqGAj8JdcV7HO-LHOrJU_RYPA74a9Q4gk&callback=initMap">
     </script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src="index.js"></script>
-
   </body>
 </html>
 

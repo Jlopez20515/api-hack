@@ -1,29 +1,57 @@
-const autocompleteUrl = "http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=6OZLurgb9tXTUxFourfGrlDeE3pIVPLU&language=en-us&q=Milwaukee"
+const autocompleteUrl = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=6OZLurgb9tXTUxFourfGrlDeE3pIVPLU&language=en-us&q=';
 
-fetch(autocompleteUrl, {
-    method: 'GET',
-    headers: {"Accept": "application/json"},
-    mode: 'cors'
-  }).then((response) => {
-      if (response.status !== 200) {
-        console.log('Looks like there was a problem. Status Code: ' +
-          response.status);
-        return;
-      }
-      return response.json();
-  }).then((data) => {
-      console.log(data);
-      let cityKey = data[0].Key
-      getWeather(cityKey);
-  }).catch(function(err) {
-    console.log('goFetch() Error :-S --> utils.js', err);
-    return err;
-  });
+const getWeatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/';
+
+const temporaryVariable = '?apikey=6OZLurgb9tXTUxFourfGrlDeE3pIVPLU';
 
 function getWeather(cityKey) {
-  // do something
+  let tempUrl = getWeatherUrl + cityKey + temporaryVariable;
+  console.log(tempUrl);
+  fetch(tempUrl, {
+      method: 'GET',
+      headers: {"Accept": "application/json"},
+      mode: 'cors'
+    }).then((response) => {
+        if (response.status !== 200) {
+          console.log('Looks like there was a problem. Status Code: ' +
+            response.status);
+          return;
+        }
+        return response.json();
+    }).then((data) => {
+        console.log('but why', data);
+    }).catch(function(err) {
+      console.log('goFetch() Error :-S --> utils.js', err);
+      return err;
+    });
 }
 
+function queryWeatherAPI(queryUrl) {
+  fetch(queryUrl, {
+      method: 'GET',
+      headers: {"Accept": "application/json"},
+      mode: 'cors'
+    }).then((response) => {
+        if (response.status !== 200) {
+          console.log('Looks like there was a problem. Status Code: ' +
+            response.status);
+          return;
+        }
+        return response.json();
+    }).then((data) => {
+        console.log(data);
+        let cityKey = data[0].Key
+        getWeather(cityKey);
+    }).catch(function(err) {
+      console.log('goFetch() Error :-S --> utils.js', err);
+      return err;
+    });
+}
+
+function formUrl(cityInput) {
+  let queryUrl = autocompleteUrl + cityInput;
+  queryWeatherAPI(queryUrl);
+}
 
 function initMap() {
   let losAngeles = {lat: 34.0522, lng: -118.2437};
@@ -47,3 +75,15 @@ function initMap() {
     draggable: true
   });
 }
+
+function registerClick() {
+  $('.js-submit').on('submit', event => {
+    event.preventDefault();
+    let queryTarget = $(event.currentTarget).find('.cityInput');
+    let cityInput = queryTarget.val();
+    queryTarget.val('');
+    formUrl(cityInput);
+  });
+}
+
+$(registerClick);
