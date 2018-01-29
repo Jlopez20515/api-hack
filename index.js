@@ -4,6 +4,14 @@ const getWeatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/'
 
 const temporaryVariable = '?apikey=6OZLurgb9tXTUxFourfGrlDeE3pIVPLU';
 
+// 'http://dataservice.accuweather.com/currentconditions/v1/12345?apikey=6OZLurgb9tXTUxFourfGrlDeE3pIVPLU'
+
+function showCityChoices(data) {
+  for (let i = 0; i < data.length; i++) {
+    console.log(data[i]);
+  }
+}
+
 function getWeather(cityKey) {
   let tempUrl = getWeatherUrl + cityKey + temporaryVariable;
   console.log(tempUrl);
@@ -19,7 +27,8 @@ function getWeather(cityKey) {
         }
         return response.json();
     }).then((data) => {
-        console.log('but why', data);
+        console.log('City Weather: ', data);
+        showCityChoices(data);
     }).catch(function(err) {
       console.log('goFetch() Error :-S --> utils.js', err);
       return err;
@@ -56,7 +65,6 @@ function formUrl(cityInput) {
 function initMap() {
   let losAngeles = {lat: 34.0522, lng: -118.2437};
   let whittier = {lat: 33.9792, lng: -118.0328};
-  // let Milwaukee = {lat: 43.0389, lng: -87.9065};
   let map = new google.maps.Map(document.getElementById('map'), {
     zoom: 11,
     center: losAngeles
@@ -76,7 +84,7 @@ function initMap() {
   });
 }
 
-function registerClick() {
+function initializeApp() {
   $('.js-submit').on('submit', event => {
     event.preventDefault();
     let queryTarget = $(event.currentTarget).find('.cityInput');
@@ -86,4 +94,4 @@ function registerClick() {
   });
 }
 
-$(registerClick);
+$(initializeApp);
