@@ -8,11 +8,13 @@ const temporaryVariable = '?apikey=iLVflnmtCAdI8CSd9fnIgEh5Ys2jx2iY';
 
 // 'http://dataservice.accuweather.com/currentconditions/v1/12345?apikey=6OZLurgb9tXTUxFourfGrlDeE3pIVPLU'
 
-function showCityChoices(data) {
+function showCityTemp(data) {
   let temp = data[0].Temperature.Imperial.Value;
   let weatherText = data[0].WeatherText;
-  let weatherIcon = data[0].WeatherIcon;
-  console.log(temp, weatherText, weatherIcon);
+  $('#weather').html('Temperature: ' + temp);
+  $('.forecast').html('Description: ' + weatherText);
+  
+  // console.log(temp, weatherText);
 }
 
 function getWeather(cityKey) {
@@ -30,7 +32,7 @@ function getWeather(cityKey) {
         return response.json();
     }).then((data) => {
         console.log('From fetch() ', data);
-        showCityChoices(data);
+        showCityTemp(data);
     }).catch(function(err) {
       console.log('goFetch() Error :-S --> utils.js', err);
       return err;
