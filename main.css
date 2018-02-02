@@ -1,4 +1,9 @@
 body {
+  background-image: url("https://wallpaperlayer.com/img/2015/9/downtown-los-angeles-wallpaper-7185-7467-hd-wallpapers.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #D2D3D5;
 }
 
@@ -30,11 +35,21 @@ form {
   transition: all 0.40s;
 }
 
-#weather {
+.weatherInfo {
+  margin: auto;
+  width: 20%;
+  padding: 30px;
+  border-style: solid;
+  border width: 5px;
+  background-color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+/*#weather {
 margin: auto;
 width: 20%;
 padding: 30px;
-background-color: red;
 border-style: solid;
 border-width: 5px;
 font-size: 20px;
@@ -56,10 +71,24 @@ font-weight: bold;
   font-weight: bold;
 }
 
+#cityName {
+  margin: auto;
+  width: 20%;
+  padding: 30px;
+  border-style: solid;
+  border-width: 5px;
+  font-size: 20px;
+  background-color: white;
+  border-radius: 10px;
+  font-weight: bold;
+}*/
+
 section > h1 {
-  padding: 0 0px;
-  width: 100%;
+  padding: 100 100px;
+  margin: auto;
   color: white;
+  border: solid black 2px;
+  border-radius: 4px;
   background-color: #48A7EA;
   text-align: center;
   font-size: 40px;
@@ -67,4 +96,13 @@ section > h1 {
 
 section > h2 {
   text-align: center;
+  padding: 0 0px;
+  margin: auto;
+  color: white;
+  width: 25%;
+  border: solid black 2px;
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  background-color: #48A7EA;
 }

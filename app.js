@@ -3,17 +3,24 @@ const autocompleteUrl = 'http://dataservice.accuweather.com/locations/v1/cities/
 
 const getWeatherUrl = 'http://dataservice.accuweather.com/currentconditions/v1/';
 
-// const temporaryVariable = '?apikey=6OZLurgb9tXTUxFourfGrlDeE3pIVPLU';
-const temporaryVariable = '?apikey=iLVflnmtCAdI8CSd9fnIgEh5Ys2jx2iY';
+const cityUrl = 'http://dataservice.accuweather.com/locations/v1/cities/geoposition/search';
+
+
+
+const temporaryVariable = '?apikey=6OZLurgb9tXTUxFourfGrlDeE3pIVPLU';
+// const temporaryVariable = '?apikey=iLVflnmtCAdI8CSd9fnIgEh5Ys2jx2iY';
 
 // 'http://dataservice.accuweather.com/currentconditions/v1/12345?apikey=6OZLurgb9tXTUxFourfGrlDeE3pIVPLU'
 
 function showCityTemp(data) {
   let temp = data[0].Temperature.Imperial.Value;
   let weatherText = data[0].WeatherText;
+  let city = data[0].Type;
+    console.log('Does it work?', city);
+  // let city = data[0].LocalizedName;
   $('#weather').html('Temperature: ' + temp);
   $('.forecast').html('Description: ' + weatherText);
-  
+  $('#cityName').html('City: ' + city);
   // console.log(temp, weatherText);
 }
 
@@ -52,7 +59,7 @@ function queryWeatherAPI(queryUrl) {
         }
         return response.json();
     }).then((data) => {
-        let cityKey = data[0].Key
+        let cityKey = data[0].Key;
         getWeather(cityKey);
     }).catch(function(err) {
       console.log('goFetch() Error :-S --> utils.js', err);
