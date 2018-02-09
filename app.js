@@ -4,7 +4,6 @@ const STORE = {
   cities: [],
   currentConditions: {},
   geoPositionData: {}
-  // Precip1hr: {}
 }
 const autocompleteUrl = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete?language=en-us&q=';
 const getCurrentConditions = 'http://dataservice.accuweather.com/currentconditions/v1/';
@@ -31,6 +30,7 @@ function getGeoPosition(highestRankedCityKey) {
         return response.json();
     }).then((data) => {
         STORE.geoPositionData = data;
+        initMap(STORE.geoPositionData.GeoPosition.Latitude, STORE.geoPositionData.GeoPosition.Longitude);
         console.log('GeoPosition Data: ', STORE.geoPositionData);
     }).catch(function(err) {
       console.log('getWeather() error', err);
@@ -55,7 +55,7 @@ function getWeather(highestRankedCityKey) {
                            + highestRankedCityKey
                            + '?'
                            + STORE.tempQueryAPIParameter2;
-  console.log('Current Condiitons URL: ', currentConditionsUrl);
+  console.log('Current Conditions URL: ', currentConditionsUrl);
   fetch(currentConditionsUrl, {
       method: 'GET',
       headers: {"Accept": "application/json"},
@@ -120,23 +120,21 @@ function initializeApp() {
   });
 }
 
-function initMap() {
-  let losAngeles = {lat: 34.0522, lng: -118.2437};
-  let whittier = {lat: 33.9792, lng: -118.0328};
+function searchMarker() {
+  console.log ('ddsdsdcsd')
+}
+
+function initMap(lat, lng) {
+  let pin = {
+    lat: lat || 34.052,
+    lng: lng || -118.244
+  };
   let map = new google.maps.Map(document.getElementById('map'), {
     zoom: 11,
-    center: losAngeles
+    center: pin
   });
-
-  //sets marker and map to Los Angeles
   let marker = new google.maps.Marker({
-    position: losAngeles,
-    map: map,
-    draggable: true
-  });
-
-  let marker2 = new google.maps.Marker({
-    position: whittier,
+    position: pin,
     map: map,
     draggable: true
   });
