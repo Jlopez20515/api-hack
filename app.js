@@ -5,9 +5,9 @@ const STORE = {
   currentConditions: {},
   geoPositionData: {}
 }
-const autocompleteUrl = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete?language=en-us&q=';
-const getCurrentConditions = 'http://dataservice.accuweather.com/currentconditions/v1/';
-const geoPositionUrl = 'http://dataservice.accuweather.com/locations/v1/';
+const autocompleteUrl = 'https://dataservice.accuweather.com/locations/v1/cities/autocomplete?language=en-us&q=';
+const getCurrentConditions = 'https://dataservice.accuweather.com/currentconditions/v1/';
+const geoPositionUrl = 'https://dataservice.accuweather.com/locations/v1/';
 // apikey=6OZLurgb9tXTUxFourfGrlDeE3pIVPLU';
 // apikey=iLVflnmtCAdI8CSd9fnIgEh5Ys2jx2iY';
 
