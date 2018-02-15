@@ -1,3 +1,7 @@
+@media only screen and (max-width: 500px) {
+
+}
+
 body {
   background-image: url("https://wallpaperlayer.com/img/2015/9/downtown-los-angeles-wallpaper-7185-7467-hd-wallpapers.jpg");
   height: 100%;
@@ -8,7 +12,9 @@ body {
 }
 
 #map {
- height: 500px;
+ position: relative;
+ height: 400px;
+ /*padding-bottom: 100px;*/
  width: 50%;
  margin: auto;
  border-radius: 5px;
@@ -53,7 +59,7 @@ form {
 }
 
 section > h1 {
-  padding: 100 100px;
+  /*padding: 100 100px;*/
   margin: auto;
   color: white;
   border: solid black 2px;
