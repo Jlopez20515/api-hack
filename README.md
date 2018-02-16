@@ -4,7 +4,10 @@
 Wanted to build the application so users could easily find weather information with a single search and display a map.
 
 ## Summary
-The user gets to enter a city in which he/she would like to know the weather from. Then the weather is displayed on the window above "Enter City Name". Once that is displayed the Google Maps API also renders the map to the city in which the user searched for. 
+The user gets to enter a city in which he/she would like to know the weather from. Then the weather is displayed on the window above "Enter City Name". Once that is displayed the Google Maps API also renders the map to the city in which the user searched for.
+
+### Live Version
+* [Weather-app](https://jlopez20515.github.io/weather-app/)
 
 ## Screenshots
 <img width="1439" alt="screen shot 2018-02-15 at 6 00 07 pm" src="https://user-images.githubusercontent.com/33261886/36290614-083a5564-127b-11e8-9473-488c299d88d2.png">
@@ -18,3 +21,6 @@ The user gets to enter a city in which he/she would like to know the weather fro
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Design
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - functionality
 * [jQuery](https://jquery.com/) - JavaScript Library
+
+## Author
+* Jesus Lopez
