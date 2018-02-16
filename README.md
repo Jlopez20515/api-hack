@@ -6,7 +6,7 @@ Wanted to build the application so users could easily find weather information w
 ## Summary
 The user gets to enter a city in which he/she would like to know the weather from. Then the weather is displayed on the window above "Enter City Name". Once that is displayed the Google Maps API also renders the map to the city in which the user searched for.
 
-### Live Version
+## Live Version
 * [Weather-app](https://jlopez20515.github.io/weather-app/)
 
 ## Screenshots
@@ -21,6 +21,11 @@ The user gets to enter a city in which he/she would like to know the weather fro
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Design
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - functionality
 * [jQuery](https://jquery.com/) - JavaScript Library
+
+## API's used
+
+* [AccuWeather](https://developer.accuweather.com/)
+* [GoogleMaps](https://developers.google.com/maps/documentation/javascript/)
 
 ## Author
 * Jesus Lopez
