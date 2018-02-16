@@ -8,8 +8,6 @@ const STORE = {
 const autocompleteUrl = 'https://dataservice.accuweather.com/locations/v1/cities/autocomplete?language=en-us&q=';
 const getCurrentConditions = 'https://dataservice.accuweather.com/currentconditions/v1/';
 const geoPositionUrl = 'https://dataservice.accuweather.com/locations/v1/';
-// apikey=6OZLurgb9tXTUxFourfGrlDeE3pIVPLU';
-// apikey=iLVflnmtCAdI8CSd9fnIgEh5Ys2jx2iY';
 
 function getGeoPosition(highestRankedCityKey) {
   let geoUrl = geoPositionUrl
@@ -95,9 +93,7 @@ function getCityInfo(queryUrl) {
         console.log('Array of Cities: ', STORE.cities);
         let highestRankedCityKey = STORE.cities[0].Key;
         getGeoPosition(highestRankedCityKey);
-        // let state = STORE.cities[0].AdministrativeArea.LocalizedName;
-        // let country = STORE.cities[0].Country.LocalizedName;
-        // let city = STORE.cities[0].LocalizedName;
+
         getWeather(highestRankedCityKey);
     }).catch(function(err) {
       console.log('goFetch() Error :-S', err);
